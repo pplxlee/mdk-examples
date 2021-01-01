@@ -4,7 +4,7 @@ CONFIG += c++11
 CONFIG -= app_bundle
 TEMPLATE = lib
 
-MDK_SDK = $$PWD/../mdk-sdk
+MDK_SDK = C:/MyMain/Develop/Libs/mdk/mdk-sdk-windows-desktop/mdk-sdk
 INCLUDEPATH += $$MDK_SDK/include
 contains(QT_ARCH, x.*64) {
   android: MDK_ARCH = x86_64

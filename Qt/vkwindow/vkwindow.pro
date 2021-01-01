@@ -3,8 +3,9 @@ CONFIG += utf8_source
 CONFIG -= app_bundle
 TEMPLATE = app
 
-MDK_SDK = $$PWD/../../mdk-sdk
+MDK_SDK = C:/MyMain/Develop/Libs/mdk/mdk-sdk-windows-desktop/mdk-sdk
 INCLUDEPATH += $$MDK_SDK/include
+INCLUDEPATH += C:/VulkanSDK/1.2.162.0/Include
 contains(QT_ARCH, x.*64) {
   android: MDK_ARCH = x86_64
   else: MDK_ARCH = x64

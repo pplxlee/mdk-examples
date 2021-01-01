@@ -3,7 +3,7 @@ CONFIG += c++17 utf8_source
 CONFIG -= app_bundle
 TEMPLATE = app
 
-MDK_SDK = $$PWD/../mdk-sdk
+MDK_SDK = C:/MyMain/Develop/Libs/mdk/mdk-sdk-windows-desktop/mdk-sdk
 INCLUDEPATH += $$MDK_SDK/include
 contains(QT_ARCH, x.*64) {
   android: MDK_ARCH = x86_64
@@ -22,7 +22,7 @@ macx {
   LIBS += -F$$MDK_SDK/lib -F/usr/local/lib -framework mdk
 } else {
   LIBS += -L$$MDK_SDK/lib/$$MDK_ARCH -lmdk
-  win32: LIBS += -L$$PWD/../../mdk-sdk/bin/$$MDK_ARCH # qtcreator will prepend $$LIBS to PATH to run targets
+  win32: LIBS += -L$$MDK_SDK/bin/$$MDK_ARCH # qtcreator will prepend $$LIBS to PATH to run targets
 }
 linux: LIBS += -Wl,-rpath-link,$$MDK_SDK/lib/$$MDK_ARCH # for libc++ symbols
 

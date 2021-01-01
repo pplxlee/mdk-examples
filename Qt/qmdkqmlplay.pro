@@ -2,7 +2,7 @@ QT       += gui quick
 CONFIG += c++11
 CONFIG -= app_bundle
 TEMPLATE = app
-INCLUDEPATH += $$PWD/../mdk-sdk/include
+INCLUDEPATH += C:/MyMain/Develop/Libs/mdk/mdk-sdk-windows-desktop/mdk-sdk/include
 
 contains(QT_ARCH, x.*64) {
   android: MDK_ARCH = x86_64
@@ -18,12 +18,12 @@ contains(QT_ARCH, x.*64) {
 }
 
 macx {
-  LIBS += -F$$PWD/../mdk-sdk/lib -F/usr/local/lib -framework mdk
+  LIBS += -FC:/MyMain/Develop/Libs/mdk/mdk-sdk-windows-desktop/mdk-sdk/lib -F/usr/local/lib -framework mdk
 } else {
-  LIBS += -L$$PWD/../mdk-sdk/lib/$$MDK_ARCH -lmdk
-  win32: LIBS += -L$$PWD/../../mdk-sdk/bin/$$MDK_ARCH # qtcreator will prepend $$LIBS to PATH to run targets
+  LIBS += -LC:/MyMain/Develop/Libs/mdk/mdk-sdk-windows-desktop/mdk-sdk/lib/$$MDK_ARCH -lmdk
+  win32: LIBS += -LC:/MyMain/Develop/Libs/mdk/mdk-sdk-windows-desktop/mdk-sdk/bin/$$MDK_ARCH # qtcreator will prepend $$LIBS to PATH to run targets
 }
-linux: LIBS += -Wl,-rpath-link,$$PWD/../mdk-sdk/lib/$$MDK_ARCH # for libc++ symbols
+linux: LIBS += -Wl,-rpath-link,C:/MyMain/Develop/Libs/mdk/mdk-sdk-windows-desktop/mdk-sdk/lib/$$MDK_ARCH # for libc++ symbols
 
 SOURCES += $$PWD/qml/qmdkqmlplay.cpp\
            $$PWD/qml/mdkplayer.cpp
