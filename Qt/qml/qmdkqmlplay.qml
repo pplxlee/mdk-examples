@@ -18,5 +18,17 @@ Window {
         anchors.fill: parent
 
         Component.onCompleted: player.play()
+        onSourceChanged: player.play()
+
+        MouseArea {
+            id: mouseArea
+            x: 0
+            y: 0
+            width: 640
+            height: 480
+            onClicked: player.snapshot()
+        }
     }
+
+
 }

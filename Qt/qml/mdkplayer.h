@@ -21,12 +21,14 @@ public:
     Q_INVOKABLE void setSource(const QString & s) {
         internal_player->setMedia(s.toLocal8Bit().data());
         m_source = s;
+        qDebug() << "s:" << s;
         emit sourceChanged();
     }
 
     Q_INVOKABLE void play();
     Q_INVOKABLE void setPlaybackRate(float rate);
     Q_INVOKABLE void setVideoSurfaceSize(int width, int height);
+    Q_INVOKABLE void snapshot(const QString &dst = QString());
 
     void renderVideo();
 
@@ -36,6 +38,8 @@ signals:
 private:
     QString m_source;
     Player *internal_player;
+
+    mutable QQuickFramebufferObject::Renderer *renderer_;
 };
 
 #endif // VIDEORENDERER_H

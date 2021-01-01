@@ -1,6 +1,7 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 #include "mdkplayer.h"
+#include <QDebug>
 
 int main(int argc, char *argv[])
 {
@@ -14,6 +15,7 @@ int main(int argc, char *argv[])
         return -1;
     else {
         QObject *rootObject = engine.rootObjects().first();
+        qDebug() << "url:" << app.arguments().last();
         rootObject->setProperty("url", app.arguments().last());
     }
 
